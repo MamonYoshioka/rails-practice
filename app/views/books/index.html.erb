@@ -1,0 +1,32 @@
+<h1>Books</h1>
+<!--基本的に使用したいタグを入れて、Tabキーを押すと表示される-->
+<!--また、何個かまとめてタグを使用したいときは<使用したいタグ>*個数(数値)を入力してTabキー-->
+
+<!--ex)table>tr>th*2の後にTabキーでthが2個のテーブルが完成する-->
+
+<table class="design responsive">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <%  @books.each do |book| %>
+    <tbody >
+      <tr>
+        <th><%= book.title %></th>
+        <td><%= book.body %></td>
+        <td><%= link_to 'show', book_path(book) %></td>
+        <td><%= link_to 'edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book_path(book), method: :delete, "data-confirm" => "Are you sure？" %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+<br>
+
+<h2>新規登録画面</h2>
+  <%= render partial: 'form' %>

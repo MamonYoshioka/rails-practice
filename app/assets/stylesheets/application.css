@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* その他の設定 */
+  header, h1, nav, .list-comment {
+    font-family: verdana, arial, helvetica, sans-serif;
+  }
+
+  /* テーブルデザイン */
+  .design {
+     width: 100%;
+     text-align: left;
+     border-collapse: collapse;
+     border-spacing: 0;
+     border: solid 1px #778ca3;
+  }
+  .design tr {
+     border-top: dashed 1px #778ca3;
+  }
+  .design th {
+     padding: 10px;
+     background: #e9faf9;
+  }
+  .design td {
+     padding: 10px;
+  }
+
+    /* レスポンシブ */
+    /*memo : ブレークポイントを600pxで設定*/
+    @media screen and (max-width: 600px) {
+      .responsive {
+        border: 0;
+        width:100%
+      }
+      .responsive th{
+        font-weight: 900;
+        background-color: #778ca3;;
+        display: block;
+        border-right: none;
+      }
+      .responsive thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .responsive tr {
+        display: block;
+        margin-bottom: .625em;
+      }
+
+      .responsive td {
+
+        border-bottom: 1px solid #bbb;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+        position: relative;
+        padding: .625em .625em .625em 4em;
+        border-right: none;
+      }
+
+      .responsive td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        position: absolute;
+        left: 10px;
+      }
+
+      .responsive td:last-child {
+        border-bottom: 0;
+      }
+    }
+
+  /* フラッシュメッセージデザイン */
+  .flash-message {
+    border-radius: 5px;
+    padding: 16px 24px;
+    margin: 10px 0px;
+  }
+
+  .flash-message.notice {
+    background-color: #bcdfff;
+    color: #0067C0;
+    border: solid 1px #0067C0;
+  }
+
+  .flash-message.alert {
+    background-color: #ffd4d1;
+    color: #930403;
+    border: solid 1px #930403;
+  }

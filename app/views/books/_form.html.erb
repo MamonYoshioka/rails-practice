@@ -1,0 +1,27 @@
+<!--varidation-->
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <br>
+<% end %>
+
+<!--登録-->
+<%= form_with model:@book do |form| %>
+    <div>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </div>
+
+    <div>
+        <%= form.label :body %><br>
+        <%= form.text_area :body %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
